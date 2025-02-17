@@ -1,5 +1,19 @@
 # Steps to reproduce
 
+## Update
+
+I have found out that simply updating `rehype-mathjax` to `7.0.0` resolves the bug.
+
+After a bisect session, I found that the commit that resolved the bug was [`b353e49`](https://github.com/remarkjs/remark-math/commit/b353e49fda9c7a8a3caee0923ceaa7037f075128).
+
+Try the steps below without updating the dependencies, and you should be able to reproduce the bug. Then try again after updating:
+
+```
+pnpm add remarkjs/remark-math#path:/packages/rehype-mathjax\&b353e49fda9c7a8a3caee0923ceaa7037f075128
+```
+
+..., and you will see the bug has been resolved.
+
 ## Can reproduce with `webpack`
 
 ```
